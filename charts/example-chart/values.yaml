@@ -28,11 +28,7 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
-env:
-  {{- range .Values.examplemap }}
-  - name: {{ .name }}
-    value: {{ .value }}
-  {{- end }}
+env:  {}
 
 service:
   type: NodePort
