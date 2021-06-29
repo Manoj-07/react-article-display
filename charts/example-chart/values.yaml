@@ -5,8 +5,8 @@ replicaCount: 1
 
 image:
   repository: manojsaikumar/react-article-display
-  tag: 
-  pullPolicy: Always
+  tag:  "" 
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 nameOverride: ""
