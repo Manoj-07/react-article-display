@@ -6,7 +6,6 @@ metadata:
     {{- include "example-chart.labels" . | nindent 4 }}
     app.kubernetes.io/component: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Values.image.tag | quote }}
-    date: "{{ .Release.Time.Seconds }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -17,7 +16,6 @@ spec:
       labels:
         app.kubernetes.io/component: {{ .Release.Name }}
         app.kubernetes.io/version: {{ .Values.image.tag | quote }}
-        date: "{{ .Release.Time.Seconds }}"
         {{- include "example-chart.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
