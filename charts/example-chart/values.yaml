@@ -30,7 +30,7 @@ securityContext: {}
   # runAsUser: 1000
 
 env:
-  IMAGE_NAME: image
+  DOCKER_TAG: image
 
 jobs:
   push:
