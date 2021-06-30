@@ -61,13 +61,13 @@ jobs:
           echo "::set-output name=version::$VERSION"
 
       - name: Update Image Version in the related HelmChart values.yaml
-        uses: fjogeleit/yaml-update-action@master
+        uses: Manoj-07/react-article-display@master
         with:
-          valueFile: 'deplyoment/helm/values.yaml'
-          propertyPath: 'backend.version'
+          valueFile: 'charts/example-chart/values.yaml'
+          # propertyPath: 'backend.version'
           value: ${{ steps.image.outputs.version }}
-          branch: deployment/${{ steps.image.outputs.version }}
-          targetBranch: development
+          branch: test1/${{ steps.image.outputs.version }}
+          targetBranch: master
           createPR: 'true'
           message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
 
