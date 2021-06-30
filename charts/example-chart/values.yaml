@@ -30,8 +30,7 @@ securityContext: {}
   # runAsUser: 1000
 
 env:
-  env:
-  IMAGE_NAME: image
+  IMAGE_NAME: manojsaikumar/react-article-display
 
 jobs:
   push:
@@ -46,7 +45,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Push app image
-        id: image
+        id: manojsaikumar/react-article-display
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$FILES_IMAGE_NAME
           # Strip git ref prefix from version
