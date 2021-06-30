@@ -30,7 +30,7 @@ securityContext: {}
   # runAsUser: 1000
 
 env:
-  IMAGE_NAME: manojsaikumar/react-article-display
+  IMAGE_NAME: image
 
 jobs:
   push:
@@ -45,7 +45,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Push app image
-        id: manojsaikumar/react-article-display
+        id: image
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$FILES_IMAGE_NAME
           # Strip git ref prefix from version
@@ -61,7 +61,7 @@ jobs:
           echo "::set-output name=version::$VERSION"
 
       - name: Update Image Version in the related HelmChart values.yaml
-        uses: Manoj-07/react-article-display@master
+        uses: fjogeleit/yaml-update-action@master
         with:
           valueFile: 'deplyoment/helm/values.yaml'
           propertyPath: 'backend.version'
