@@ -27,11 +27,6 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          env:
-        {{- range $conf, $value := .Values.env }}
-          - name: {{ $conf | quote }}
-            value: {{ $value | quote }}
-        {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
