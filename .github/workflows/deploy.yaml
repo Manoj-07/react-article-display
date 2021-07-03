@@ -33,4 +33,14 @@ jobs:
           push: true
           tags: manojsaikumar/react-article-display:${{ env.DOCKER_TAG }}
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUBTOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+      - name: Update Image Version in the related HelmChart values.yaml
+        uses: Manoj-07/react-article-display@master
+        with:
+          valueFile: 'charts/example-chart/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ env.DOCKER_TAG }}
+          branch: branch/${{ env.DOCKER_TAG }}
+          targetBranch: master
+          createPR: 'true'
+          message: 'Update Image Version to ${{ env.DOCKER_TAG }}' 
