@@ -35,7 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
       - name: Update Image Version in the related HelmChart values.yaml
-        uses: manojsaikumar/react-article-display/charts/example-chart/values.yaml
+        uses: Manoj-07/react-article-display@master
         with:
           valueFile: 'charts/example-chart/values.yaml'
           propertyPath: 'image.tag'
