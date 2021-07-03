@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: manojsaikumar/react-article-display
-  tag: test1-7c4022dc1559f202f4326f3fe8071f3aefe6d530
+  tag: test1-027f7a6b0cbf69d9560472cae213ac735e7f730a
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ''
